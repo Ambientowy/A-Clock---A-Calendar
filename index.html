@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Clock & A Calendar - Just like any other clock on the Internet.</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <div id="calendar__headers">
+            <h1>A <span class="calendar__accent-color">Clock</span> & A <span class="calendar__accent-color">Calendar</span></h1>
+            <h2>Just like any other clock on the Internet.</h2>
+        </div>
+        <nav>
+            <button id="calendar__switch-theme">
+                <span class="material-icons">bedtime</span>
+                <span class="material-symbols-outlined">colors</span>
+            </button>
+        </nav>
+    </header>
+    <section>
+        <div id="calendar__wrapper">
+            <div id="calendar__inner-wrapper">
+                <p id="calendar__txt--today">Today is...</p>
+                <p id="calendar__day-month"></p>
+                <p id="calendar__year"></p>
+                <p id="calendar__txt--time">... and the time is...</p>
+                <p id="calendar__time"></p>
+                <p id="calendar__hidden"></p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <span id="calendar__copyright-icon">&copy;</span> <span id="calendar__current-year"></span> All rights reserved.
+    </footer>
+    <script src="./js/theme.js"></script>
+    <script src="./js/time.js"></script>
+</body>
+</html>

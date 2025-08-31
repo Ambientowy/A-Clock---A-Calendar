@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --acc-color: #6297e2;
+    --acc-hover-color: #146eec;
+    --bg-color: #00050c;
+    --txt-color: #c0c3c7;
+    color-scheme: dark;
+}
+
+html {
+    font: 900 16px/24px 'Host Grotesk', 'Roboto', system-ui, sans-serif;
+}
+
+body {
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    height: 100svh;
+    height: 100vh;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 32px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+footer {
+    background-color: var(--txt-color);
+    bottom: 0;
+    color: var(--bg-color);
+    font-weight: 500;
+    padding: 32px 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+h1 span {
+    cursor: pointer;
+    font-weight: 900;
+}
+
+#calendar__headers h1 {
+    font-size: 4rem;
+}
+
+#calendar__headers h2 {
+    font-size: 1rem;
+}
+
+#calendar__headers h1, #calendar__headers h2 {
+    line-height: 1;
+}
+
+#calendar__wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 50dvw;
+    height: 50svw;
+    height: 50vw;
+    justify-content: center;
+    width: 50dvw;
+    width: 50svw;
+    width: 50vw;
+}
+
+#calendar__inner-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+}
+
+#calendar__inner-wrapper p {
+    line-height: 1;
+}
+
+#calendar__txt--today {
+    font-size: 4vw;
+}
+
+#calendar__day-month {
+    font-size: 3.7vw;
+}
+
+#calendar__year {
+    font-size: 8vw;
+}
+
+#calendar__txt--time {
+    font-size: 2.1vw;
+}
+
+#calendar__time {
+    font-size: 4.7vw;
+}
+
+#calendar__hidden {
+    position: fixed;
+    top: -1000px;
+    width: auto;
+}
+
+#calendar__switch-theme {
+    background: none;
+    border: none;
+    color: var(--acc-color);
+    cursor: pointer;
+    display: flex;
+    gap: 16px;
+}
+
+#calendar__switch-theme span, .calendar__accent-color {
+    opacity: .5;
+}
+
+#calendar__switch-theme span:focus-within, #calendar__switch-theme span:hover, .calendar__accent-color:focus-within, .calendar__accent-color:hover {
+    opacity: 1;
+    transition: .3s opacity ease-in-out;
+}
+
+#calendar__current-year {
+    font-weight: 900;
+}
+
+.calendar__accent-color {
+    color: var(--acc-color);
+}
+
+.calendar__light-mode {
+    --bg-color: #e5e9ee;
+    --txt-color: #00050c;
+    color-scheme: light;
+}
+
+@media (max-width: 600px) {
+    header {
+        align-items: baseline;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .material-icons, .material-symbols-outlined {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 796px) {
+    #calendar__headers h1 {
+        font-size: clamp(16px, 2.5rem, 4rem);
+    }
+}
+
+@media (min-width: 796px) and (max-width: 1024px) {
+    #calendar__wrapper {
+        height: 40dvw;
+        height: 40svw;
+        height: 40vw;
+        width: 40dvw;
+        width: 40svw;
+        width: 40vw;
+    }
+
+    #calendar__txt--today {
+        font-size: 5.4vw;
+    }
+
+    #calendar__day-month {
+        font-size: 5vw;
+    }
+
+    #calendar__year {
+        font-size: 11vw;
+    }
+
+    #calendar__txt--time {
+        font-size: 2.9vw;
+    }
+
+    #calendar__time {
+        font-size: 6.5vw;
+    }
+}
