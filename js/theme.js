@@ -1,6 +1,7 @@
 let calAccColor = document.querySelector(`.calendar__accent-color`);
 let calThemeSwitch = localStorage.getItem(`calendar__light-mode__enabled`);
 let calThemeSwitchBut = document.querySelector(`#calendar__switch-theme`);
+let calColor = document.querySelector(`#calendar__color`);
 
 const calHeaderOneSpan = document.querySelector(`h1 span`);
 const calThemeSwitchIcon = document.querySelector(`.material-icons`);
@@ -26,9 +27,15 @@ calThemeSwitchIcon.addEventListener(`click`, () => {
 });
 
 calThemeChangeAccent.addEventListener(`click`, () => {
-    let calColor = prompt(`Podaj kolor akcentowy w formacie szesnatkowym (HEX):`);
-    calAccColor.style.color = calColor;
-    calThemeSwitchBut.style.color = calColor;
+    alert(`Choose your desired color by clicking the rectangle next to the paint icon.`);
+
+    calColor.style.display = `block`;
+    calColor.style.opacity = 1;
+
+    calColor.addEventListener(`input`, () => {
+        calAccColor.style.color = calColor.value;
+        calThemeSwitchBut.style.color = calColor.value;
+    });
 });
 
 calHeaderOneSpan.addEventListener(`click`, () => {

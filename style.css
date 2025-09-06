@@ -142,6 +142,16 @@ h1 span {
     font-weight: 900;
 }
 
+#calendar__color {
+    border: none;
+    background-color: var(--acc-color);
+    cursor: pointer;
+    display: none;
+    height: 24px;
+    opacity: .5;
+    width: 32px;
+}
+
 .calendar__accent-color {
     color: var(--acc-color);
 }
