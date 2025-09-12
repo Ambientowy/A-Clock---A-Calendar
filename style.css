@@ -162,6 +162,31 @@ h1 span {
     color-scheme: light;
 }
 
+.calendar__custom-background {
+    -webkit-animation: calendar-anim-bg 16s infinite ease-in-out alternate-reverse;
+    animation: calendar-anim-bg 16s infinite ease-in-out alternate-reverse;
+    background-image: linear-gradient(-60deg, var(--bg-color), var(--acc-color));
+    background-size: 300% 300%;
+}
+
+@keyframes calendar-anim-bg {
+    0% {
+        background-position: 0 50%;
+    }
+    25% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
 @media (max-width: 600px) {
     header {
         align-items: baseline;

@@ -1,11 +1,13 @@
-let calAccColor = document.querySelector(`.calendar__accent-color`);
+let calAccColor = document.querySelectorAll(`.calendar__accent-color`);
 let calThemeSwitch = localStorage.getItem(`calendar__light-mode__enabled`);
+let calBackgroundSwitch = localStorage.getItem(`calendar__light-mode__enabled`);
 let calThemeSwitchBut = document.querySelector(`#calendar__switch-theme`);
 let calColor = document.querySelector(`#calendar__color`);
 
 const calHeaderOneSpan = document.querySelector(`h1 span`);
-const calThemeSwitchIcon = document.querySelector(`.material-icons`);
-const calThemeChangeAccent = document.querySelector(`.material-symbols-outlined`);
+const calThemeSwitchIcon = document.querySelector(`#calendar__mode-change`);
+const calThemeChangeAccent = document.querySelector(`#calendar__accent-color-change`);
+const calBackgroundSwitchBut = document.querySelector(`#calendar__background-change`);
 
 const calLightMode = () => {
     document.body.classList.add(`calendar__light-mode`);
@@ -26,6 +28,23 @@ calThemeSwitchIcon.addEventListener(`click`, () => {
     calThemeSwitch !== `active` ? calLightMode() : calDarkMode();
 });
 
+const calGradientBackground = () => {
+    document.body.classList.add(`calendar__custom-background`);
+    localStorage.setItem(`calendar__custom-background__enabled`, `active`);
+}
+
+const calSolidBackground = () => {
+    document.body.classList.remove(`calendar__custom-background`);
+    localStorage.setItem(`calendar__custom-background__enabled`, null);
+}
+
+if(calBackgroundSwitch === `active`) calGradientBackground();
+
+calBackgroundSwitchBut.addEventListener(`click`, () => {
+    calBackgroundSwitch = localStorage.getItem(`calendar__custom-background__enabled`);
+    calBackgroundSwitch !== `active` ? calGradientBackground() : calSolidBackground();
+});
+
 calThemeChangeAccent.addEventListener(`click`, () => {
     alert(`Choose your desired color by clicking the rectangle next to the paint icon.`);
 
@@ -33,8 +52,11 @@ calThemeChangeAccent.addEventListener(`click`, () => {
     calColor.style.opacity = 1;
 
     calColor.addEventListener(`input`, () => {
-        calAccColor.style.color = calColor.value;
+        document.body.style.backgroundImage = `linear-gradient(-60deg, var(--bg-color), ${calColor.value})`;
         calThemeSwitchBut.style.color = calColor.value;
+        for(let i = 0; i <= calAccColor.length; i++) {
+            calAccColor[i].style.color = calColor.value;
+        }
     });
 });
 

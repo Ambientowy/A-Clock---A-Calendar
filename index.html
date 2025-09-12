@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="clock, calendar, app, project, simple, nothing special">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Clock & A Calendar - Just like any other clock on the Internet.</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -17,8 +18,9 @@
         </div>
         <nav>
             <button id="calendar__switch-theme">
-                <span class="material-icons">bedtime</span>
-                <span class="material-symbols-outlined">colors</span>
+                <span class="material-icons" id="calendar__mode-change">bedtime</span>
+                <span class="material-symbols-outlined" id="calendar__accent-color-change">colors</span>
+                <span class="material-symbols-outlined" id="calendar__background-change">texture</span>
                 <input type="color" name="calendar__color" id="calendar__color">
             </button>
         </nav>
