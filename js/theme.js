@@ -1,6 +1,6 @@
 let calAccColor = document.querySelectorAll(`.calendar__accent-color`);
 let calThemeSwitch = localStorage.getItem(`calendar__light-mode__enabled`);
-let calBackgroundSwitch = localStorage.getItem(`calendar__light-mode__enabled`);
+let calBackgroundSwitch = localStorage.getItem(`calendar__custom-background__enabled`);
 let calThemeSwitchBut = document.querySelector(`#calendar__switch-theme`);
 let calColor = document.querySelector(`#calendar__color`);
 
@@ -30,7 +30,7 @@ calThemeSwitchIcon.addEventListener(`click`, () => {
 
 const calGradientBackground = () => {
     document.body.classList.add(`calendar__custom-background`);
-    localStorage.setItem(`calendar__custom-background__enabled`, `active`);
+    localStorage.setItem(`calendar__custom-background__enabled`, `activated`);
 }
 
 const calSolidBackground = () => {
@@ -38,11 +38,11 @@ const calSolidBackground = () => {
     localStorage.setItem(`calendar__custom-background__enabled`, null);
 }
 
-if(calBackgroundSwitch === `active`) calGradientBackground();
+if(calBackgroundSwitch === `activated`) calGradientBackground();
 
 calBackgroundSwitchBut.addEventListener(`click`, () => {
     calBackgroundSwitch = localStorage.getItem(`calendar__custom-background__enabled`);
-    calBackgroundSwitch !== `active` ? calGradientBackground() : calSolidBackground();
+    calBackgroundSwitch !== `activated` ? calGradientBackground() : calSolidBackground();
 });
 
 calThemeChangeAccent.addEventListener(`click`, () => {
