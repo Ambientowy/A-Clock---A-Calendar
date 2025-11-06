@@ -22,9 +22,14 @@ const calDarkMode = () => {
 
 if(calThemeSwitch === `active`) calLightMode();
 
-calThemeSwitchIcon.addEventListener(`click`, () => {
+const calThemeSwitchIconCookies = () => {
     calThemeSwitch = localStorage.getItem(`calendar__light-mode__enabled`);
     calThemeSwitch !== `active` ? calLightMode() : calDarkMode();
+}
+
+calThemeSwitchIcon.addEventListener(`click`, calThemeSwitchIconCookies);
+calThemeSwitchIcon.addEventListener(`keydown`, (e) => {
+    if(e.key === `Enter`) calThemeSwitchIconCookies();
 });
 
 const calGradientBackground = () => {
@@ -39,9 +44,14 @@ const calSolidBackground = () => {
 
 if(calBackgroundSwitch === `activated`) calGradientBackground();
 
-calBackgroundSwitchBut.addEventListener(`click`, () => {
+const calBackgroundSwitchCookies = () => {
     calBackgroundSwitch = localStorage.getItem(`calendar__custom-background__enabled`);
     calBackgroundSwitch !== `activated` ? calGradientBackground() : calSolidBackground();
+}
+
+calBackgroundSwitchBut.addEventListener(`click`, calBackgroundSwitchCookies);
+calBackgroundSwitchBut.addEventListener(`keydown`, (e) => {
+    if(e.key === `Enter`) calBackgroundSwitchCookies();
 });
 
 calColor.addEventListener(`input`, () => {
@@ -70,16 +80,18 @@ calColor.addEventListener(`input`, () => {
             calThemeSwitchIcon.style.color = `black`;
         }
     }
-    
-    localStorage.setItem(`calendar__custom-color`, calColor.value);
-    localStorage.getItem(`calendar__custom-color`);
 });
 
-calHeaderOneSpan.addEventListener(`click`, () => {
+const calEasterEgg = () => {
     alert(`Check the console.`);
     console.log(`Check your cookies (should be in the "Application" section of your browser).`);
     document.cookie = `checkthewebsitesnewtitle = Look at the cookie's name, not value.`;
     document.title = `Click on the copyright icon.`;
     const calCopyIcon = document.querySelector(`#calendar__copyright-icon`);
     calCopyIcon.addEventListener(`click`, () => window.location.replace(`https://www.youtube.com/watch?v=SYTW3YvetmU`));
+}
+
+calHeaderOneSpan.addEventListener(`click`, calEasterEgg);
+calHeaderOneSpan.addEventListener(`keydown`, (e) => {
+    if(e.key === `Enter`) calEasterEgg();
 });
