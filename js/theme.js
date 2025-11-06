@@ -6,7 +6,6 @@ let calColor = document.querySelector(`#calendar__color`);
 
 const calHeaderOneSpan = document.querySelector(`h1 span`);
 const calThemeSwitchIcon = document.querySelector(`#calendar__mode-change`);
-const calThemeChangeAccent = document.querySelector(`#calendar__accent-color-change`);
 const calBackgroundSwitchBut = document.querySelector(`#calendar__background-change`);
 
 const calLightMode = () => {
@@ -45,19 +44,35 @@ calBackgroundSwitchBut.addEventListener(`click`, () => {
     calBackgroundSwitch !== `activated` ? calGradientBackground() : calSolidBackground();
 });
 
-calThemeChangeAccent.addEventListener(`click`, () => {
-    alert(`Choose your desired color by clicking the rectangle next to the paint icon.`);
+calColor.addEventListener(`input`, () => {
+    document.body.style.backgroundImage = `linear-gradient(-60deg, var(--bg-color), ${calColor.value})`;
+    calThemeSwitchBut.style.color = calColor.value;
+    calColor.style.outline = `16px solid ${calColor.value}`;
 
-    calColor.style.display = `block`;
-    calColor.style.opacity = 1;
+    let calColorRed = parseInt(calColor.value.substring(1, 3), 16);
+    let calColorGreen = parseInt(calColor.value.substring(3, 5), 16);
+    let calColorBlue = parseInt(calColor.value.substring(5, 7), 16);
+    let calColorFinal = ((calColorRed * 299) + (calColorGreen * 587) + (calColorBlue * 114)) / 1000;
 
-    calColor.addEventListener(`input`, () => {
-        document.body.style.backgroundImage = `linear-gradient(-60deg, var(--bg-color), ${calColor.value})`;
-        calThemeSwitchBut.style.color = calColor.value;
-        for(let i = 0; i <= calAccColor.length; i++) {
-            calAccColor[i].style.color = calColor.value;
+    for(let i = 0; i <= calAccColor.length; i++) {
+        calAccColor[i].style.color = calColor.value;
+        if (calColorFinal < 128) {
+            document.body.style.color = `white`;
+            calAccColor[i].style.color = `white`;
+            calBackgroundSwitchBut.style.color = `white`;
+            calThemeSwitchBut.style.color = `white`;
+            calThemeSwitchIcon.style.color = `white`;
+        } else {
+            document.body.style.color = `black`;
+            calAccColor[i].style.color = `black`;
+            calBackgroundSwitchBut.style.color = `black`;
+            calThemeSwitchBut.style.color = `black`;
+            calThemeSwitchIcon.style.color = `black`;
         }
-    });
+    }
+    
+    localStorage.setItem(`calendar__custom-color`, calColor.value);
+    localStorage.getItem(`calendar__custom-color`);
 });
 
 calHeaderOneSpan.addEventListener(`click`, () => {

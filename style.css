@@ -123,7 +123,7 @@ h1 span {
 #calendar__switch-theme {
     background: none;
     border: none;
-    color: var(--acc-color);
+    color: white;
     cursor: pointer;
     display: flex;
     gap: 16px;
@@ -146,14 +146,15 @@ h1 span {
     border: none;
     background-color: var(--acc-color);
     cursor: pointer;
-    display: none;
     height: 24px;
     opacity: .5;
     width: 32px;
+    outline: 16px solid var(--acc-color);
+    outline-offset: -16px;
 }
 
 .calendar__accent-color {
-    color: var(--acc-color);
+    color: white;
 }
 
 .calendar__light-mode {
